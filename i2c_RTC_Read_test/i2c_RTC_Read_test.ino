@@ -18,8 +18,8 @@
   // For i2c, R=1, W=0;
   
 void setup() {
-  i2c_init();
   Serial.begin(9600);
+  i2c_init();
 }
 
 void loop() {

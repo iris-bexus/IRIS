@@ -1,9 +1,12 @@
+// -*-c++-*-
 // Scan I2C bus for device responses
 
-#define SDA_PORT PORTD
-#define SDA_PIN 3
-#define SCL_PORT PORTD
+// use ports usually used for hardware I2C
+#define SDA_PORT PORTC
+#define SDA_PIN 4
+#define SCL_PORT PORTC
 #define SCL_PIN 5
+
 #define I2C_TIMEOUT 100
 #define I2C_NOINTERRUPT 0
 #define I2C_SLOWMODE 1
@@ -16,7 +19,14 @@
 #define SDA_PIN 4
 #define SCL_PORT PORTC
 #define SCL_PIN 5
-#define I2C_FASTMODE 1
+#define I2C_FASTMODE 0
+*/
+
+/*
+#define SDA_PORT PORTC
+#define SDA_PIN 1
+#define SCL_PORT PORTC
+#define SCL_PIN 0
 */
 
 #include <SoftI2CMaster.h>
@@ -36,7 +46,7 @@ void setup(void) {
   CPUSlowDown(FAC);
 #endif
 
-  Serial.begin(19200); // change baudrate to 2400 on terminal when low CPU freq!
+  Serial.begin(115200); // change baudrate to 2400 on terminal when low CPU freq!
   Serial.println(F("Intializing ..."));
   Serial.print("I2C delay counter: ");
   Serial.println(I2C_DELAY_COUNTER);
